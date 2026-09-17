@@ -51,18 +51,12 @@ k8s utils, baked into the image) and exports `host`, `port` and `password`. `cod
 
 ## Workshop examples
 
-The examples come from the [workshop repo](https://github.com/nesi/reannz-containers-workshop),
-pinned by commit in *docker/workshop-version.txt*, baked into the image at
-*/opt/containers-workshop/examples* and rsynced into `~/containers-workshop` at startup with
-`--ignore-existing`, so learners' edits survive a restart. The chapter 9 MPI examples are dropped,
-since they are written for a Slurm cluster.
-
-The two [chapter 2](https://nesi.github.io/reannz-containers-workshop/setup-containers/#2-the-basics-of-running-containers-on-apptainer)
-containers ship prebuilt. They are built by *.github/workflows/build_container.yml* **on the runner**,
-not in the docker build, because building a `.sif` needs mount privileges that a `RUN` step does not
-have. The workflow drops them into *docker/prebuilt/*, which the Dockerfile moves into the chapter 2
-example directory. Building the image by hand leaves that directory empty, which is fine — the
-definition files are all still there.
+This image ships no workshop content, and does not need to. The training environment provisions the
+[workshop examples](https://github.com/nesi/reannz-containers-workshop) into every user's home
+directory at deploy time (the `app-data/containers-workshop` role, controlled by
+`provision_data_containers_workshop`), with the chapter 2 containers already built. Home
+directories are shared over NFS, so they are already in `~/containers-workshop` when a session
+starts, the same as they are in a terminal on the web node. `code-server` opens in that directory.
 
 ## Releasing a new version
 
