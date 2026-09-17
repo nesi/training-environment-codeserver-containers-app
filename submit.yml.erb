@@ -12,7 +12,7 @@ script:
   native:
     container:
       name: "codeserver"
-      image: "ghcr.io/nesi/training-environment-containers-codeserver-app:v0.1.1"
+      image: "ghcr.io/nesi/training-environment-codeserver-containers-app:v0.1.2"
       command: ["/bin/bash","-l","<%= staged_root %>/job_script_content.sh"]
       working_dir: "<%= Etc.getpwnam(ENV['USER']).dir %>"
       restart_policy: 'OnFailure'

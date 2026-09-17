@@ -18,7 +18,7 @@ installs one app per git repo:
 | Tile | Repo |
 | --- | --- |
 | JupyterLab | [training-environment-jupyter-containers-app](https://github.com/nesi/training-environment-jupyter-containers-app) |
-| Terminal | [training-environment-containers-terminal-app](https://github.com/nesi/training-environment-containers-terminal-app) |
+| Terminal | [training-environment-terminal-containers-app](https://github.com/nesi/training-environment-terminal-containers-app) |
 | VS Code | this one |
 
 The three *docker/Dockerfile* files are the same, so a change to one usually belongs in all three,
@@ -67,7 +67,7 @@ definition files are all still there.
 ## Releasing a new version
 
 1. Update the version in `script.native.container.image` in *submit.yml.erb*, commit it
-2. `git tag -a v0.1.1 -m "..."` and `git push --tags`
+2. `git tag -a v0.1.2 -m "..."` and `git push --tags`
 3. Check the *Actions* tab — the workflow builds and pushes the image to ghcr.io
 4. Update `k8s_container` and `version` for this app in *vars/ondemand-config.yml* in the
    training-environment repo
